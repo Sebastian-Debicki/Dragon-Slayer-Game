@@ -1,24 +1,25 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Auth from './containers/Auth/Auth';
+import firebase from 'firebase';
+
+var firebaseConfig = {
+  apiKey: "AIzaSyCWbzWIaiSV6KwZHRmlBkDR7sdlN-AgDC4",
+  authDomain: "game-4af87.firebaseapp.com",
+  databaseURL: "https://game-4af87.firebaseio.com",
+  projectId: "game-4af87",
+  storageBucket: "game-4af87.appspot.com",
+  messagingSenderId: "257918894155",
+  appId: "1:257918894155:web:b6426884299fff38364dce",
+  measurementId: "G-T3QSHXMGLJ"
+};
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+firebase.analytics();
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Auth />
     </div>
   );
 }
