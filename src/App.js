@@ -1,6 +1,8 @@
 import React from 'react';
 import Auth from './containers/Auth/Auth';
 import firebase from 'firebase';
+import { Route, Switch } from 'react-router-dom';
+import Game from './Game';
 
 var firebaseConfig = {
   apiKey: "AIzaSyCWbzWIaiSV6KwZHRmlBkDR7sdlN-AgDC4",
@@ -19,7 +21,10 @@ firebase.analytics();
 function App() {
   return (
     <div className="App">
-      <Auth />
+      <Switch>
+        <Route path="/" component={Auth} exact />
+        <Route path="/game" component={Game} />
+      </Switch>
     </div>
   );
 }

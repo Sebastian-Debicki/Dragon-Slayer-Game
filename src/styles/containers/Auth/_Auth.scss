@@ -1,0 +1,40 @@
+.auth {
+  width: 100%;
+  min-height: 100vh;
+  background-image: url(../../../assets/imgs/bg-auth-1.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  color: white;
+  font-size: $default-font-size;
+
+  &__form-container {
+    position: absolute;
+    width: 80%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+
+    @include respond (phone) {
+      width: 65%;
+    }
+
+    @include respond (tab-port) {
+      width: 50%;
+    }
+
+    @include respond (tab-land) {
+      width: 40%;
+    }
+
+    @include respond (desktop) {
+      width: 30%;
+    }
+  }
+
+  &__ask-paragraph {
+    margin-top: 2.5rem;
+  }
+}
