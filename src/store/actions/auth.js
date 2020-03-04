@@ -7,15 +7,18 @@ export const authStart = () => {
   }
 }
 
-export const authSuccess = () => {
+export const authSuccess = (token, userId) => {
   return {
-    type: actionTypes.AUTH_SUCCESS
+    type: actionTypes.AUTH_SUCCESS,
+    token,
+    userId
   }
 }
 
-export const authFail = () => {
+export const authFail = (err) => {
   return {
-    type: actionTypes.AUTH_FAIL
+    type: actionTypes.AUTH_FAIL,
+    error: err
   }
 }
 
@@ -28,6 +31,9 @@ export const auth = (email, password, isSignUp) => {
     }
 
     authType
-      .then(res => console.log(res))
+      .then(res => {
+        dispatch(authSuccess(res.user._lat, res.user.uid))
+      })
+      .catch(err => dispatch(authFail(err)))
   }
 }
