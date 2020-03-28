@@ -1,0 +1,22 @@
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 90%;
+  text-align: center;
+  background-color: $color-secondary;
+  z-index: 1000;
+
+  @include respond(phone) {
+    min-width: 60%;
+  }
+
+  @include respond(tab-port) {
+    min-width: 50%;
+  }
+
+  @include respond(tab-land) {
+    min-width: 40%;
+  }
+}

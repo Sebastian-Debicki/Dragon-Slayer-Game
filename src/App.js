@@ -1,8 +1,13 @@
 import React from 'react';
 import Auth from './containers/Auth/Auth';
 import firebase from 'firebase';
-import { Route, Switch } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import Game from './Game';
+import Layout from './components/Layout/Layout';
+import { Component } from 'react';
+import { connect } from 'react-redux';
+import * as actions from './store/actions/index';
+import Logout from './containers/Auth/Logout/Logout';
 
 var firebaseConfig = {
   apiKey: "AIzaSyCWbzWIaiSV6KwZHRmlBkDR7sdlN-AgDC4",
@@ -18,15 +23,29 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 
-function App() {
-  return (
-    <div className="App">
-      <Switch>
-        <Route path="/" component={Auth} exact />
-        <Route path="/game" component={Game} />
-      </Switch>
-    </div>
-  );
+class App extends Component {
+
+  componentDidMount() {
+    this.props.onTryAutoSignIn();
+  }
+
+  render() {
+    return (
+      <>
+        <Layout>
+          <Route path="/" component={Auth} exact />
+          <Route path="/game" component={Game} />
+          <Route path="/logout" component={Logout} />
+        </Layout>
+      </>
+    );
+  }
 }
 
-export default App;
+const mapDispatchToProps = dispatch => {
+  return {
+    onTryAutoSignIn: () => dispatch(actions.onTryAutoSignIn())
+  }
+}
+
+export default connect(null, mapDispatchToProps)(App);

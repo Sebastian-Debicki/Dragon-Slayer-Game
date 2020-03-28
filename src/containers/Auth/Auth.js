@@ -23,11 +23,9 @@ const Auth = (props) => {
     setPasswordValueState('');
   }
 
-  console.log(props.isAuth)
-
   return (
     <section className="auth">
-      {props.isAuth && <Redirect to="/game" />}
+      {props.isAuth && <Redirect to="/game/choose-save" />}
       <div className="heading-box">
         <h1 className="heading-primary">Dragon Slayer</h1>
       </div>

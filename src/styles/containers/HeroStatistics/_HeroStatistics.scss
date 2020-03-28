@@ -1,0 +1,12 @@
+.statistics {
+  width: 100%;
+  min-height: 100vh;
+  background-color: $color-grey-dark-1;
+  font-size: $default-font-size;
+  text-align: center;
+  padding: 1rem 0;
+
+  &__img {
+    width: 14rem;
+  }
+}

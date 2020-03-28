@@ -1,0 +1,93 @@
+.fight {
+  color: $color-grey-light-2;
+  font-size: $default-font-size;
+
+  &__box {
+    width: 100%;
+    max-height: 100vh;
+    overflow: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+
+    @include respond(phone) {
+      width: 80%;
+    }
+
+    @include respond(tab-port) {
+      width: 60%;
+    }
+
+    @include respond(tab-land) {
+      width: 48%;
+    }
+
+    @include respond(desktop) {
+      width: 40%;
+    }
+
+    @include respond(desktop-big) {
+      width: 35%;
+    }
+  }
+
+
+  &__progress {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    height: 3rem;
+    border: 3px solid $color-black;
+  }
+
+  &__progress[value]::-webkit-progress-bar,
+  &__progress[value] {
+    background-color: $color-grey-light-2;
+  }
+
+  &__progress-life {
+    width: 80%;
+  }
+
+  &__progress-life[value]::-webkit-progress-value {
+    background-color: red;
+    transition: all 0.2s ease-out;
+  }
+
+  &__progress-life[value]::-moz-progress-bar {
+    background-color: red;
+    transition: all 0.2s ease-out;
+  }
+
+
+  &__progress-mana {
+    width: 50%;
+  }
+
+  &__progress-mana[value]::-webkit-progress-value {
+    background-color: blue;
+    transition: all 0.2s ease-out;
+  }
+
+  &__progress-mana[value]::-moz-progress-bar {
+    background-color: blue;
+    transition: all 0.2s ease-out;
+  }
+
+  &__name {
+    font-size: 3rem;
+  }
+
+  &__options {
+    margin-top: 4rem;
+    font-size: 1.5rem;
+  }
+
+  &__skill-name {
+    font-weight: bold;
+    color: $color-primary-light;
+  }
+
+}

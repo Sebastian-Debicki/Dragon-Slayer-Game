@@ -21,6 +21,11 @@ html {
 }
 
 .heading-secondary {
-  color: $color-primary;
+  color: $color-primary-dark;
   font-size: 6rem;
+}
+
+.heading-tertiary {
+  font-size: 4rem;
+  color: $color-primary-dark;
 }

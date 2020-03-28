@@ -9,7 +9,17 @@
 
 @import './components/UI/input/input';
 @import './components/UI/Button/Button';
+@import './components/UI/Spinner/Spinner';
+@import './components/UI/Modal/Modal';
+@import './components//UI/Backdrop/Backdrop';
+@import './components/Menu/Menu';
 
 @import './containers/Auth/Auth';
 @import './containers/Game/Game';
 @import './containers/ChooseSave/ChooseSave';
+@import './containers/ChooseHero/ChooseHero';
+@import './containers/Fight/Fight';
+@import './containers/Fight/Winner/Winner';
+@import './containers/Fight/ChooseMonsterLvl/ChooseMonsterLvl';
+@import './containers/Shop/Shop';
+@import './containers/HeroStatistics/HeroStatistics';

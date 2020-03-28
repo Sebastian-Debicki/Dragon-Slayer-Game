@@ -1,13 +1,59 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { Route, Switch } from 'react-router-dom';
+import { connect } from 'react-redux';
+import * as actions from './store/actions/index';
 import ChooseSave from './containers/ChooseSave/ChooseSave';
-import { Route } from 'react-router-dom';
+import PlayGame from './containers/PlayGame/PlayGame';
+import Dungeon from './containers/Fight/Fight';
+import Shop from './containers/Shop/Shop';
+import HeroStatistics from './containers/HeroStatistics/HeroStatistics';
 
-const Game = () => {
-  return (
-    <div className="game">
-      <Route path="/game" component={ChooseSave} />
-    </div>
-  );
+class Game extends Component {
+
+  componentDidMount() {
+    const token = localStorage.getItem('token');
+    const userId = localStorage.getItem('userId');
+    if (this.props.isNewUser) {
+      this.props.newUserStartGame(this.props.token, this.props.userId)
+      setTimeout(() => {
+        this.props.fetchGames(this.props.token, this.props.userId)
+      }, 600)
+    } else {
+      this.props.fetchGames(token, userId)
+    }
+  }
+
+  render() {
+    return (
+      <div className="game">
+        <Switch>
+          <Route path="/game/choose-save" component={ChooseSave} />
+          {!this.props.loading && <Route path="/game/:id" component={PlayGame} exact />}
+          {!this.props.loading && <Route path="/game/:id/dungeon" component={Dungeon} />}
+          {!this.props.loading && <Route path="/game/:id/shop" component={Shop} />}
+          {!this.props.loading && <Route path="/game/:id/statistics" component={HeroStatistics} />}
+        </Switch>
+      </div>
+    );
+  }
 }
 
-export default Game;
+const mapStateToProps = state => {
+  return {
+    token: state.auth.token,
+    userId: state.auth.userId,
+    isNewUser: state.auth.isNewUser,
+    data: state.game.data,
+    loading: state.game.loading
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    newUserStartGame: (token, userId) => dispatch(actions.newUserStartGame(token, userId)),
+    fetchGames: (token, userId) => dispatch(actions.fetchGames(token, userId)),
+    onTryAutoSignIn: () => dispatch(actions.onTryAutoSignIn())
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Game);

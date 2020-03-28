@@ -1,0 +1,38 @@
+.choose-monsterLvl {
+  padding: 3rem;
+  font-size: $default-font-size;
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-height: 70vh;
+    overflow: auto;
+    margin: 2rem 0;
+  }
+
+  &__item {
+    list-style: none;
+    margin: 1rem 2rem 2rem 1rem;
+    padding: 4rem 3.5rem;
+    box-shadow: 0 .5rem 1rem rgba($color-black, .2);
+    transition: .3s;
+    cursor: pointer;
+    color: black;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 1rem 2rem rgba($color-black, .3);
+      color: $color-white;
+    }
+
+    &:active {
+      transform: translateY(-2px);
+      box-shadow: 0 .3rem .6rem rgba($color-black, .3);
+    }
+  }
+
+  &__img {
+    width: 10rem;
+  }
+}
