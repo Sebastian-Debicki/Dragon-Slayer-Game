@@ -52,7 +52,6 @@ const mapDispatchToProps = dispatch => {
   return {
     newUserStartGame: (token, userId) => dispatch(actions.newUserStartGame(token, userId)),
     fetchGames: (token, userId) => dispatch(actions.fetchGames(token, userId)),
-    onTryAutoSignIn: () => dispatch(actions.onTryAutoSignIn())
   }
 }
 
