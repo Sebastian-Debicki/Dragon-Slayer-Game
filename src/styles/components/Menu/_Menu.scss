@@ -21,7 +21,7 @@
     width: 90%;
     height: 70vh;
     position: absolute;
-    top: 50%;
+    top: 55%;
     left: 50%;
     transform: translate(-50%, -50%);
     border: 5px solid black;
@@ -34,6 +34,7 @@
 
     @include respond(phone) {
       width: 65%;
+      top: 50%;
     }
 
     @include respond(tab-port) {

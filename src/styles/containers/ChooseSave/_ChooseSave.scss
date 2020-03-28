@@ -7,7 +7,7 @@
   &__box {
     width: 100%;
     position: absolute;
-    top: 40%;
+    top: 47%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
@@ -24,6 +24,7 @@
     justify-content: space-evenly;
     flex-wrap: wrap;
     transition: .3s;
+    border-radius: 3px;
 
     @include respond(phone) {
       width: 80%;
@@ -38,12 +39,15 @@
       flex-grow: 1;
       font-size: 2.5rem;
       font-family: inherit;
+      padding: .7rem 0;
     }
 
     &__buttons {
       width: 40%;
       display: flex;
       flex-wrap: wrap;
+      flex-direction: column;
+      justify-content: space-between;
     }
   }
 }

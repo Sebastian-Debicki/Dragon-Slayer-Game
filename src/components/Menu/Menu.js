@@ -18,7 +18,7 @@ const Menu = ({ startFightHandler, gameId, currentGame }) => {
       <nav className='menu__nav'>
         <ul className="menu__list">
           <li className="menu__list__el">
-            <NavLink className="menu__list-link" to={`/game/${gameId}/dungeon`} onClick={startFightHandler}>Fight!</NavLink>
+            <NavLink className="menu__list-link" to={`/game/${gameId}/fight`} onClick={startFightHandler}>Fight!</NavLink>
           </li>
           <li className="menu__list__el">
             <NavLink className="menu__list-link" to={`/game/${gameId}/shop`}>Shop</NavLink>

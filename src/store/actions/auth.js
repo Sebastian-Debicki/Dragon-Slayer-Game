@@ -43,11 +43,15 @@ export const auth = (email, password, isSignUp) => {
 
     auth
       .then(res => {
+        console.log(res)
         localStorage.setItem('token', res.user._lat)
         localStorage.setItem('userId', res.user.uid)
         dispatch(authSuccess(res.user._lat, res.user.uid, res.additionalUserInfo.isNewUser))
       })
-      .catch(err => dispatch(authFail(err)))
+      .catch(err => {
+        console.log(err)
+        dispatch(authFail(err))
+      })
   }
 }
 

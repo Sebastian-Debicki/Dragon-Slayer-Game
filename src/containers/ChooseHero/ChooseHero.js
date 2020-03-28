@@ -1,5 +1,6 @@
 import React from 'react';
 import { heroes } from '../../data/heroes';
+import { NavLink } from 'react-router-dom';
 
 const ChooseHero = (props) => {
 
@@ -31,6 +32,7 @@ const ChooseHero = (props) => {
 
   return (
     <section className="choose-hero">
+      <NavLink className="btn btn__exit" to='/game/choose-save'>Back</NavLink>
       <div className="heading-box ">
         <h2 className="heading-secondary u-margin-bottom-small">Choose Hero!</h2>
       </div>

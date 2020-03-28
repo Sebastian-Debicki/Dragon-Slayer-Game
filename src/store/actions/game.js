@@ -11,6 +11,13 @@ export const saveChangedGameStatistics = (data) => {
   }
 }
 
+const newUserStartGameLoading = (data) => {
+  return {
+    type: actionTypes.NEW_USER_START_LOADING,
+    data
+  }
+}
+
 export const newUserStartGame = (token, userId) => {
   const data = {
     userId,
@@ -33,8 +40,8 @@ export const newUserStartGame = (token, userId) => {
     }
   }
   return dispatch => {
+    dispatch(newUserStartGameLoading(data))
     axios.post('https://game-4af87.firebaseio.com/games.json?auth=' + token, data)
-    dispatch(fetchGamesSuccess(data))
   }
 }
 
