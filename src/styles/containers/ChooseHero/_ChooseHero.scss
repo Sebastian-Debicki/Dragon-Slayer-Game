@@ -1,0 +1,51 @@
+.choose-hero {
+  padding: 5rem 5rem;
+  width: 100%;
+  min-height: 100vh;
+  background-color: $color-grey-dark-1;
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  &__box {
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  &__hero {
+    display: inline-block;
+    padding: 0 2rem 2rem 2rem;
+    margin: 2rem 0;
+    width: 25rem;
+    background-color: transparent;
+    border: 5px solid $color-primary-dark;
+    border-radius: .5rem;
+    cursor: pointer;
+    transition: .3s;
+
+    &-name {
+      font-size: 5rem;
+    }
+
+    &-img {
+      width: 10rem;
+    }
+
+    &-statistics {
+      margin-top: 2rem;
+      font-size: $default-font-size;
+    }
+
+    &:hover {
+      transform: translateY(-2rem);
+    }
+  }
+}
