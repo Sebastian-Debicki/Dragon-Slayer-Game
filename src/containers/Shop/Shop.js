@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import * as actions from '../../store/actions/index';
 import Button from '../../components/UI/Button/Button';
 import Modal from '../../components/UI/Modal/Modal';
+import { NavLink } from 'react-router-dom';
 
 const Shop = ({ data, saveChangedGameStatistics, ...props }) => {
   const gameId = props.match.params.id;
@@ -40,7 +41,7 @@ const Shop = ({ data, saveChangedGameStatistics, ...props }) => {
       setModalOpen(true)
     }
     if (item.lvl === item.maxLvl) setModalContent("This item has a max lvl!")
-    else if (data.games[gameId].gold < item.gold) setModalContent("You don't have enaught gold!")
+    else if (data.games[gameId].gold < item.gold) setModalContent("You don't have enough gold!")
   }
 
   const buyItemHandler = (item) => {
@@ -52,12 +53,10 @@ const Shop = ({ data, saveChangedGameStatistics, ...props }) => {
       setModalOpen(true)
     }
     if (item.number === item.maxNumber) setModalContent("Maximum number of potions");
-    else if (data.games[gameId].gold < item.gold) setModalContent("You don't have enaught gold!");
+    else if (data.games[gameId].gold < item.gold) setModalContent("You don't have enough gold!");
   }
 
-  const backToMenuHandler = () => props.history.push(`/game/${gameId}`);
   const closeModalHandler = () => setModalOpen(false);
-
 
   const items = shop.items.map(item =>
     <li key={item.name} className="shop__item" onClick={() => buyItemHandler(item)}>
@@ -85,10 +84,10 @@ const Shop = ({ data, saveChangedGameStatistics, ...props }) => {
         && <Modal closeModalHandler={closeModalHandler}>
           <div className="shop__modal-content">
             <p className="shop__modal-content__paragraph">{modalContent}</p>
-            <Button className="btn btn__back" clicked={closeModalHandler}>Ok <span className="btn__back__arr">!</span></Button>
+            <Button className="btn btn__confirm" clicked={closeModalHandler}>Ok <span className="btn__confirm__item">!</span></Button>
           </div>
         </Modal>}
-      <Button className="btn btn__back" clicked={backToMenuHandler}>Back <span className="btn__back__arr">&rarr;</span></Button>
+      <NavLink className="btn btn__exit" to={`/game/${gameId}`}>Back</NavLink>
       <h2 className="heading-secondary">Shop</h2>
       <p>Gold: {gold.toFixed(0)}</p>
       <div className="equipment">

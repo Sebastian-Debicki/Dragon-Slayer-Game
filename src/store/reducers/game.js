@@ -25,6 +25,12 @@ const gameReducer = (state = initialState, action) => {
         error: action.error,
         loading: false
       }
+    case actionTypes.NEW_USER_START_LOADING:
+      return {
+        ...state,
+        data: action.data,
+        loading: true
+      }
     default: return state
   }
 }

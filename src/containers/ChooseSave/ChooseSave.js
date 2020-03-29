@@ -4,24 +4,30 @@ import Button from '../../components/UI/Button/Button';
 import { connect } from 'react-redux';
 import Spinner from '../../components/UI/Spinner/Spinner';
 import { shop } from '../../data/shop';
+import { NavLink } from 'react-router-dom';
 import Modal from '../../components/UI/Modal/Modal';
 
 
 const ChooseSave = ({ data, loading, saveChangedGameStatistics, ...props }) => {
 
   const [modalOpen, setModalOpen] = React.useState(false);
+  const [choosedGame, setChoosedGame] = React.useState(null);
 
-  const closeModalHandler = () => setModalOpen(false);
-  const openModalHandler = () => setModalOpen(true);
+  const openModalHandler = (game) => {
+    setModalOpen(true);
+    setChoosedGame(game)
+  }
+
+  const closeModalHandler = () => setModalOpen(false)
+
   const chooseSaveGameHandler = (gameNumber) => props.history.push(`/game/${gameNumber}`);
-  const resetGameSaveHandler = (game) => {
-    openModalHandler()
-    data.games[game.id].newGame = true;
-    data.games[game.id].hero = {};
-    data.games[game.id].gold = 0;
-    data.games[game.id].shop = shop;
+  const resetGameSaveHandler = () => {
+    data.games[choosedGame.id].newGame = true;
+    data.games[choosedGame.id].hero = {};
+    data.games[choosedGame.id].gold = 0;
+    data.games[choosedGame.id].shop = shop;
     saveChangedGameStatistics(data);
-    setTimeout(() => closeModalHandler(), 2000)
+    closeModalHandler()
   }
 
   let gamesArr = [];
@@ -47,8 +53,8 @@ const ChooseSave = ({ data, loading, saveChangedGameStatistics, ...props }) => {
           <p>lvl - {game.hero.lvl}</p>
         </div>
         <div className="choose-save__save__buttons">
-          <Button className="btn btn__secondary btn__secondary--modified" clicked={() => chooseSaveGameHandler(game.id)}>Continue</Button>
-          <Button className="btn btn__secondary btn__secondary--modified" clicked={() => resetGameSaveHandler(game)}>Delete</Button>
+          <Button className="btn btn__secondary" clicked={() => chooseSaveGameHandler(game.id)}>Continue</Button>
+          <Button className="btn btn__secondary" clicked={() => openModalHandler(game)}>Delete</Button>
         </div>
       </div>
   )
@@ -57,7 +63,7 @@ const ChooseSave = ({ data, loading, saveChangedGameStatistics, ...props }) => {
   if (!loading) {
     content = (
       <>
-        <div className="heading-box u-margin-bottom-big">
+        <div className="heading-box">
           <h2 className="heading-secondary">Choose Game</h2>
         </div>
         {buttons}
@@ -67,9 +73,15 @@ const ChooseSave = ({ data, loading, saveChangedGameStatistics, ...props }) => {
 
   return (
     <section className="choose-save">
-      {modalOpen && <Modal>
-        <p>You deleted the game.</p>
-      </Modal>}
+      {modalOpen &&
+        <Modal closeModalHandler={closeModalHandler}>
+          <div className="choose-save__modal-box">
+            <p className="choose-save__modal-content">Are you sure, you want to delete this game?</p>
+            <Button className="btn btn__confirm" clicked={resetGameSaveHandler}>Yes <span className="btn__confirm__item">!</span></Button>
+            <Button className="btn btn__confirm" clicked={closeModalHandler}>No <span className="btn__confirm__item">!</span></Button>
+          </div>
+        </Modal>}
+      <NavLink className="btn btn__exit" to='/logout'>Exit</NavLink>
       <div className="choose-save__box">
         {content}
       </div>

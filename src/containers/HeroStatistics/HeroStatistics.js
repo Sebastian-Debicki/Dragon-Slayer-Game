@@ -1,16 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Button from '../../components/UI/Button/Button';
+import { NavLink } from 'react-router-dom';
 
 const HeroStatistics = ({ data, ...props }) => {
   const gameId = props.match.params.id;
   const { shop, hero } = data.games[gameId];
 
-  const backToMenuHandler = () => props.history.push(`/game/${gameId}`);
-
   return (
     <section className="statistics">
-      <Button className="btn btn__back" clicked={backToMenuHandler}>Back <span className="btn__back__arr">&rarr;</span></Button>
+      <NavLink className="btn btn__exit" to={`/game/${gameId}`}>Back</NavLink>
       <h2 className="heading-secondary">Hero Statistics</h2>
       <div className="statistics__hero-box">
         <img className="statistics__img" src={hero.img} alt={hero.name} />

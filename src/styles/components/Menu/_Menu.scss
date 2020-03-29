@@ -21,7 +21,7 @@
     width: 90%;
     height: 70vh;
     position: absolute;
-    top: 50%;
+    top: 55%;
     left: 50%;
     transform: translate(-50%, -50%);
     border: 5px solid black;
@@ -31,9 +31,11 @@
     justify-content: center;
     align-items: center;
     text-align: center;
+    border-radius: 3px;
 
     @include respond(phone) {
       width: 65%;
+      top: 50%;
     }
 
     @include respond(tab-port) {
@@ -60,6 +62,7 @@
       margin-bottom: 1rem;
       border: 2px solid black;
       color: $color-grey-light-3;
+      border-radius: 3px;
 
 
       &:hover {

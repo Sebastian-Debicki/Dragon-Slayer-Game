@@ -42,44 +42,17 @@
   &__secondary {
     display: block;
     width: 100%;
-    padding: 2rem 0;
+    padding: 1.3rem 0;
     font-family: inherit;
     font-size: 2rem;
     position: relative;
     overflow: hidden;
+    background-color: $color-primary;
+    transition: .3s;
 
     &:hover {
-      color: $color-primary-dark;
-      font-weight: bold;
-    }
-
-    &::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 4rem;
-      transform: translateX(-4.2rem);
-      height: 100%;
-      z-index: -1;
-      background-color: $color-primary-dark;
-      transition: .3s;
-    }
-
-    &:hover::after {
-      transform: translateX(0);
-    }
-
-    &--modified {
-      &:nth-of-type(1) {
-        border-bottom: 2px solid $color-primary-dark;
-      }
-
-      &:nth-of-type(2) {
-        border-top: 2px solid $color-primary-dark;
-      }
-
-      border-left: 5px solid $color-primary-dark;
+      color: $color-grey-light-2;
+      transform: translateX(1.5rem);
     }
   }
 
@@ -125,13 +98,14 @@
 
 
 
-  &__back {
-    padding: 1rem 3.5rem 1rem 4.5rem;
+  &__confirm {
+    padding: 1rem 3.5rem 1rem 4rem;
     background-color: $color-primary-dark;
     color: $color-grey-dark-1;
     border: 3px solid black;
+    margin: 0 1rem;
 
-    &__arr {
+    &__item {
 
       @include respond(phone) {
         opacity: 0;
@@ -142,7 +116,7 @@
       color: white;
     }
 
-    &:hover &__arr {
+    &:hover &__item {
       opacity: 1;
     }
   }
@@ -151,5 +125,56 @@
     padding: 1rem 2.5rem;
     background-color: $color-primary;
     font-family: $font-primary;
+  }
+
+
+
+  &__exit {
+    position: fixed;
+    top: .5rem;
+    left: .5rem;
+    display: inline-block;
+    text-decoration: none;
+    padding: 2rem;
+    border-radius: 3px;
+    background-color: $color-primary-dark;
+    font-size: 1.8rem;
+    color: $color-grey-light-3;
+    z-index: 1;
+    box-shadow: 0 1rem 2rem rgba($color-black, .15);
+    transition: .3s;
+
+    @include respond(phone) {
+      top: 2rem;
+      left: 2rem;
+    }
+
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 1.5rem 3rem rgba($color-black, .3);
+    }
+
+    &:active {
+      transform: translateY(-1px);
+      box-shadow: 0 .5rem 1rem rgba($color-black, .15);
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: $color-primary-dark;
+      border-radius: 3px;
+      z-index: -1;
+      transition: .4s;
+    }
+
+    &:hover::after {
+      transform: scale(1.4);
+      opacity: 0;
+    }
   }
 }
