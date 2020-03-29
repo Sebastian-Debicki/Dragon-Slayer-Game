@@ -4,9 +4,62 @@
   background-color: $color-grey-dark-1;
   font-size: $default-font-size;
   text-align: center;
-  padding: 1rem 0;
+  padding: 6rem 0;
 
   &__img {
     width: 14rem;
+  }
+
+  &__tables-box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  &__table-box {
+    margin: 2rem;
+  }
+}
+
+
+.table {
+  border-collapse: collapse;
+  display: inline-block;
+  border: 1px solid black;
+  border-radius: 3px;
+  color: $color-grey-light-3;
+  text-align: left;
+
+  &__head {
+    background-color: $color-primary-dark;
+    text-align: left;
+    font-weight: 700;
+  }
+
+  &__body {
+
+    &__row {
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+
+
+      &:nth-of-type(even) {
+        background-color: $color-primary-dark;
+      }
+
+      &:nth-of-type(odd) {
+        background-color: $color-primary;
+      }
+
+      &:hover {
+        background-color: lighten($color-primary-dark, 3%);
+      }
+    }
+  }
+
+
+  & td,
+  th {
+    padding: 1rem 1.5rem;
   }
 }

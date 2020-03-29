@@ -30,9 +30,10 @@ class App extends Component {
   }
 
   render() {
+    const token = localStorage.getItem('token')
     return (
       <>
-        {!this.props.isAuth && <Redirect to='/' />}
+        {!token && <Redirect to='/' />}
         <Layout>
           <Route path="/" component={Auth} exact />
           <Route path="/game" component={Game} />
