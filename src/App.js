@@ -1,7 +1,7 @@
 import React from 'react';
 import Auth from './containers/Auth/Auth';
 import firebase from 'firebase';
-import { Route } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 import Game from './Game';
 import Layout from './components/Layout/Layout';
 import { Component } from 'react';
@@ -32,6 +32,7 @@ class App extends Component {
   render() {
     return (
       <>
+        {!this.props.isAuth && <Redirect to='/' />}
         <Layout>
           <Route path="/" component={Auth} exact />
           <Route path="/game" component={Game} />
@@ -42,10 +43,16 @@ class App extends Component {
   }
 }
 
+const mapStateToProps = state => {
+  return {
+    isAuth: state.auth.token !== null
+  }
+}
+
 const mapDispatchToProps = dispatch => {
   return {
     onTryAutoSignIn: () => dispatch(actions.authCheckState())
   }
 }
 
-export default connect(null, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);

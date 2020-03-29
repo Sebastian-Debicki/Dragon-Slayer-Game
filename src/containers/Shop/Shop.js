@@ -41,7 +41,7 @@ const Shop = ({ data, saveChangedGameStatistics, ...props }) => {
       setModalOpen(true)
     }
     if (item.lvl === item.maxLvl) setModalContent("This item has a max lvl!")
-    else if (data.games[gameId].gold < item.gold) setModalContent("You don't have enaught gold!")
+    else if (data.games[gameId].gold < item.gold) setModalContent("You don't have enough gold!")
   }
 
   const buyItemHandler = (item) => {
@@ -53,7 +53,7 @@ const Shop = ({ data, saveChangedGameStatistics, ...props }) => {
       setModalOpen(true)
     }
     if (item.number === item.maxNumber) setModalContent("Maximum number of potions");
-    else if (data.games[gameId].gold < item.gold) setModalContent("You don't have enaught gold!");
+    else if (data.games[gameId].gold < item.gold) setModalContent("You don't have enough gold!");
   }
 
   const closeModalHandler = () => setModalOpen(false);

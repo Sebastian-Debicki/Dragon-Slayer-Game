@@ -50,4 +50,14 @@
       justify-content: space-between;
     }
   }
+
+  &__modal-box {
+    padding: 3rem 0;
+  }
+
+  &__modal-content {
+    font-size: 2.4rem;
+    color: $color-primary;
+    margin-bottom: 1.5rem;
+  }
 }

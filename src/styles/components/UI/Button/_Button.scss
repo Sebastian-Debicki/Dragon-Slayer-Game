@@ -49,7 +49,6 @@
     overflow: hidden;
     background-color: $color-primary;
     transition: .3s;
-    border-radius: 3px;
 
     &:hover {
       color: $color-grey-light-2;
@@ -104,6 +103,7 @@
     background-color: $color-primary-dark;
     color: $color-grey-dark-1;
     border: 3px solid black;
+    margin: 0 1rem;
 
     &__item {
 
@@ -135,11 +135,11 @@
     left: .5rem;
     display: inline-block;
     text-decoration: none;
-    padding: 2.2rem;
+    padding: 2rem;
     border-radius: 3px;
     background-color: $color-primary-dark;
     font-size: 1.8rem;
-    color: $color-grey-light-2;
+    color: $color-grey-light-3;
     z-index: 1;
     box-shadow: 0 1rem 2rem rgba($color-black, .15);
     transition: .3s;
