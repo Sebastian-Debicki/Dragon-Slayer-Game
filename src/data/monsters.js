@@ -147,8 +147,8 @@ export const monsters = [
         expWin: 35,
         expLoose: 5,
         statistics: {
-          hp: 220,
-          attack: 32,
+          hp: 240,
+          attack: 35,
           def: 22
         }
       },
@@ -162,9 +162,9 @@ export const monsters = [
         expWin: 40,
         expLoose: 5,
         statistics: {
-          hp: 240,
-          attack: 32,
-          def: 25
+          hp: 280,
+          attack: 36,
+          def: 26
         }
       },
       {
@@ -177,9 +177,9 @@ export const monsters = [
         expWin: 43,
         expLoose: 5,
         statistics: {
-          hp: 260,
+          hp: 300,
           attack: 36,
-          def: 25
+          def: 28
         }
       },
       {
@@ -192,9 +192,9 @@ export const monsters = [
         expWin: 46,
         expLoose: 7,
         statistics: {
-          hp: 280,
-          attack: 38,
-          def: 30
+          hp: 300,
+          attack: 40,
+          def: 33
         }
       },
       {
@@ -207,9 +207,39 @@ export const monsters = [
         expWin: 48,
         expLoose: 7,
         statistics: {
-          hp: 300,
-          attack: 40,
+          hp: 350,
+          attack: 50,
           def: 30
+        }
+      },
+      {
+        name: 'Griffin',
+        lvl: 14,
+        goldWin: 60,
+        goldLoose: 10,
+        goldDraw: 22,
+        expDraw: 24,
+        expWin: 60,
+        expLoose: 12,
+        statistics: {
+          hp: 430,
+          attack: 48,
+          def: 40
+        }
+      },
+      {
+        name: 'Hydra',
+        lvl: 15,
+        goldWin: 70,
+        goldLoose: 15,
+        goldDraw: 26,
+        expDraw: 28,
+        expWin: 70,
+        expLoose: 18,
+        statistics: {
+          hp: 490,
+          attack: 50,
+          def: 45
         }
       }
     ]
@@ -218,23 +248,84 @@ export const monsters = [
     type: 'Hard',
     img: hardMonstersImg,
     minLvl: 16,
-    maxLvl: 25,
+    maxLvl: 20,
     monsters: [
       {
         name: 'Green Dragon',
-        lvl: 10,
-        goldWin: 100,
-        goldLoose: 10,
-        goldDraw: 30,
-        expDraw: 30,
-        expWin: 50,
-        expLoose: 5,
+        lvl: 16,
+        goldWin: 140,
+        goldLoose: 16,
+        goldDraw: 40,
+        expDraw: 40,
+        expWin: 120,
+        expLoose: 10,
         statistics: {
-          hp: 800,
-          attack: 50,
+          hp: 650,
+          attack: 70,
           def: 50
         }
+      },
+      {
+        name: 'Red Dragon',
+        lvl: 17,
+        goldWin: 180,
+        goldLoose: 10,
+        goldDraw: 45,
+        expDraw: 45,
+        expWin: 160,
+        expLoose: 10,
+        statistics: {
+          hp: 850,
+          attack: 75,
+          def: 53
+        }
+      },
+      {
+        name: 'White Dragon',
+        lvl: 18,
+        goldWin: 250,
+        goldLoose: 10,
+        goldDraw: 100,
+        expDraw: 100,
+        expWin: 200,
+        expLoose: 10,
+        statistics: {
+          hp: 950,
+          attack: 75,
+          def: 55
+        }
+      },
+      {
+        name: 'Black Dragon',
+        lvl: 19,
+        goldWin: 300,
+        goldLoose: 10,
+        goldDraw: 150,
+        expDraw: 150,
+        expWin: 250,
+        expLoose: 10,
+        statistics: {
+          hp: 1000,
+          attack: 80,
+          def: 60
+        }
+      },
+      {
+        name: 'Gold Dragon',
+        lvl: 20,
+        goldWin: 400,
+        goldLoose: 10,
+        goldDraw: 200,
+        expDraw: 200,
+        expWin: 350,
+        expLoose: 10,
+        statistics: {
+          hp: 1100,
+          attack: 90,
+          def: 65
+        }
       }
+
     ]
   }
 ]
