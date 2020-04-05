@@ -11,7 +11,7 @@ export const saveChangedGameStatistics = (data) => {
   }
 }
 
-const newUserStartGameLoading = (data) => {
+export const newUserStartGameLoading = (data) => {
   return {
     type: actionTypes.NEW_USER_START_LOADING,
     data

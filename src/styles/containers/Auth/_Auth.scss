@@ -2,12 +2,16 @@
   width: 100%;
   min-height: 100vh;
   background-image: url(../../../assets/imgs/bg-auth-1.jpg);
-  background-position: center;
+  background-position: 40%;
   background-size: cover;
   background-repeat: no-repeat;
   position: relative;
   color: white;
   font-size: $default-font-size;
+
+  @include respond(tab-land) {
+    min-height: 80vh;
+  }
 
   &__form-container {
     position: absolute;
@@ -27,10 +31,6 @@
 
     @include respond (tab-land) {
       width: 40%;
-    }
-
-    @include respond (desktop) {
-      width: 30%;
     }
   }
 

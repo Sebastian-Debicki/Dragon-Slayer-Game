@@ -3,31 +3,30 @@ import * as actions from '../../store/actions/index';
 import Button from '../../components/UI/Button/Button';
 import { connect } from 'react-redux';
 import Spinner from '../../components/UI/Spinner/Spinner';
-import { shop } from '../../data/shop';
 import { NavLink } from 'react-router-dom';
 import Modal from '../../components/UI/Modal/Modal';
+import { useChooseSaveState } from './useChooseSaveState';
+import { shop } from '../../data/shop';
 
 
 const ChooseSave = ({ data, loading, saveChangedGameStatistics, ...props }) => {
 
-  const [modalOpen, setModalOpen] = React.useState(false);
-  const [choosedGame, setChoosedGame] = React.useState(null);
-
-  const openModalHandler = (game) => {
-    setModalOpen(true);
-    setChoosedGame(game)
-  }
-
-  const closeModalHandler = () => setModalOpen(false)
+  const {
+    modalOpen,
+    choosedGame,
+    openModalHandler,
+    closeModalHandler,
+  } = useChooseSaveState(data, saveChangedGameStatistics);
 
   const chooseSaveGameHandler = (gameNumber) => props.history.push(`/game/${gameNumber}`);
+
   const resetGameSaveHandler = () => {
     data.games[choosedGame.id].newGame = true;
     data.games[choosedGame.id].hero = {};
     data.games[choosedGame.id].gold = 0;
     data.games[choosedGame.id].shop = shop;
     saveChangedGameStatistics(data);
-    closeModalHandler()
+    closeModalHandler();
   }
 
   let gamesArr = [];
@@ -40,7 +39,7 @@ const ChooseSave = ({ data, loading, saveChangedGameStatistics, ...props }) => {
     })
   }
 
-  const buttons = gamesArr.map(game =>
+  const gameButtons = gamesArr.map(game =>
     game.newGame
       ?
       <div key={game.id} className="choose-save__save">
@@ -63,10 +62,8 @@ const ChooseSave = ({ data, loading, saveChangedGameStatistics, ...props }) => {
   if (!loading) {
     content = (
       <>
-        <div className="heading-box">
-          <h2 className="heading-secondary">Choose Game</h2>
-        </div>
-        {buttons}
+        <h2 className="heading-secondary">Choose Game</h2>
+        {gameButtons}
       </>
     )
   }

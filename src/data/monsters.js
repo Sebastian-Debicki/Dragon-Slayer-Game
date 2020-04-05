@@ -14,6 +14,8 @@ export const monsters = [
         lvl: 1,
         goldWin: 8,
         goldLoose: 1,
+        goldDraw: 3,
+        expDraw: 4,
         expWin: 10,
         expLoose: 2,
         statistics: {
@@ -27,6 +29,8 @@ export const monsters = [
         lvl: 2,
         goldWin: 9,
         goldLoose: 2,
+        goldDraw: 4,
+        expDraw: 5,
         expWin: 12,
         expLoose: 3,
         statistics: {
@@ -40,6 +44,8 @@ export const monsters = [
         lvl: 3,
         goldWin: 10,
         goldLoose: 3,
+        goldDraw: 5,
+        expDraw: 6,
         expWin: 14,
         expLoose: 4,
         statistics: {
@@ -53,6 +59,8 @@ export const monsters = [
         lvl: 4,
         goldWin: 10,
         goldLoose: 4,
+        goldDraw: 6,
+        expDraw: 7,
         expWin: 16,
         expLoose: 6,
         statistics: {
@@ -66,6 +74,8 @@ export const monsters = [
         lvl: 5,
         goldWin: 13,
         goldLoose: 6,
+        goldDraw: 8,
+        expDraw: 7,
         expWin: 18,
         expLoose: 5,
         statistics: {
@@ -87,6 +97,8 @@ export const monsters = [
         lvl: 6,
         goldWin: 20,
         goldLoose: 5,
+        goldDraw: 8,
+        expDraw: 8,
         expWin: 20,
         expLoose: 4,
         statistics: {
@@ -100,6 +112,8 @@ export const monsters = [
         lvl: 7,
         goldWin: 25,
         goldLoose: 6,
+        goldDraw: 9,
+        expDraw: 9,
         expWin: 25,
         expLoose: 4,
         statistics: {
@@ -113,6 +127,8 @@ export const monsters = [
         lvl: 8,
         goldWin: 30,
         goldLoose: 7,
+        goldDraw: 11,
+        expDraw: 11,
         expWin: 30,
         expLoose: 4,
         statistics: {
@@ -126,6 +142,8 @@ export const monsters = [
         lvl: 9,
         goldWin: 40,
         goldLoose: 7,
+        goldDraw: 12,
+        expDraw: 12,
         expWin: 35,
         expLoose: 5,
         statistics: {
@@ -139,12 +157,59 @@ export const monsters = [
         lvl: 10,
         goldWin: 50,
         goldLoose: 7,
+        goldDraw: 15,
+        expDraw: 15,
         expWin: 40,
         expLoose: 5,
         statistics: {
           hp: 240,
           attack: 32,
           def: 25
+        }
+      },
+      {
+        name: 'Harpy',
+        lvl: 11,
+        goldWin: 52,
+        goldLoose: 7,
+        goldDraw: 16,
+        expDraw: 16,
+        expWin: 43,
+        expLoose: 5,
+        statistics: {
+          hp: 260,
+          attack: 36,
+          def: 25
+        }
+      },
+      {
+        name: 'Cyclops',
+        lvl: 12,
+        goldWin: 54,
+        goldLoose: 8,
+        goldDraw: 19,
+        expDraw: 19,
+        expWin: 46,
+        expLoose: 7,
+        statistics: {
+          hp: 280,
+          attack: 38,
+          def: 30
+        }
+      },
+      {
+        name: 'Guardian',
+        lvl: 13,
+        goldWin: 56,
+        goldLoose: 8,
+        goldDraw: 21,
+        expDraw: 23,
+        expWin: 48,
+        expLoose: 7,
+        statistics: {
+          hp: 300,
+          attack: 40,
+          def: 30
         }
       }
     ]
@@ -160,6 +225,8 @@ export const monsters = [
         lvl: 10,
         goldWin: 100,
         goldLoose: 10,
+        goldDraw: 30,
+        expDraw: 30,
         expWin: 50,
         expLoose: 5,
         statistics: {

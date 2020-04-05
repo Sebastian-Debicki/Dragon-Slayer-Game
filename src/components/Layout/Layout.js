@@ -7,7 +7,7 @@ const Layout = (props) => {
   let content = <Spinner />
   if (!props.loading) {
     content = (
-      <main>
+      <main className="container">
         {props.children}
       </main>
     )
