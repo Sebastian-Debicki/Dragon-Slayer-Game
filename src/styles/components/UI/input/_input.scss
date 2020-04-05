@@ -1,0 +1,20 @@
+.input {
+  display: block;
+  border: none;
+  padding: 1rem;
+  width: 100%;
+  margin: 0 auto;
+  font-family: $font-primary;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  background-color: $color-primary-light;
+  border-radius: 3px;
+
+  &:focus {
+    outline: none;
+  }
+
+  &::-webkit-input-placeholder {
+    color: #333;
+  }
+}

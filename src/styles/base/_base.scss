@@ -1,0 +1,45 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: linear-gradient($color-primary-dark, $color-primary-light);
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  padding: 0;
+
+  @include respond(tab-land) {
+    padding: 8rem 0;
+  }
+}
+
+html {
+  font-size: 50%;
+
+  @include respond(phone) {
+    font-size: 53.15%;
+  }
+
+  @include respond(tab-port) {
+    font-size: 54.25%;
+  }
+
+  @include respond(tab-land) {
+    font-size: 60%;
+  }
+}
+
+.container {
+  width: 100%;
+  margin: 0;
+
+  @include respond(tab-land) {
+    width: 120rem;
+    margin: 0 auto;
+    box-shadow: 0 2rem 6rem rgba($color-black, .25);
+    overflow: hidden;
+  }
+}
