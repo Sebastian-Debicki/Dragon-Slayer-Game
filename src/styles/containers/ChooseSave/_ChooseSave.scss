@@ -2,18 +2,22 @@
   width: 100%;
   min-height: 100vh;
   background-color: $color-grey-dark-2;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  @include respond(tab-land) {
+    min-height: 80vh;
+  }
 
   &__box {
-    width: 100%;
-    position: absolute;
-    top: 47%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    padding: 1rem;
     text-align: center;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    margin-bottom: 6rem;
   }
 
   &__save {
@@ -25,14 +29,6 @@
     flex-wrap: wrap;
     transition: .3s;
     border-radius: 3px;
-
-    @include respond(phone) {
-      width: 80%;
-    }
-
-    @include respond(tab-port) {
-      width: 60%;
-    }
 
     &__description {
       align-self: center;
@@ -58,6 +54,6 @@
   &__modal-content {
     font-size: 2.4rem;
     color: $color-primary;
-    margin-bottom: 1.5rem;
+    margin: 0 1.5rem 1.5rem;
   }
 }

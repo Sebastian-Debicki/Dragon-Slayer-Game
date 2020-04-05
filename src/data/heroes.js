@@ -77,7 +77,7 @@ export const heroes = [
         manaCost: 10
       },
       skill2: {
-        name: 'Some skill',
+        name: 'Shiruken',
         attack: 20,
         manaCost: 10
       }

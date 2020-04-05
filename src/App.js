@@ -9,7 +9,7 @@ import { connect } from 'react-redux';
 import * as actions from './store/actions/index';
 import Logout from './containers/Auth/Logout/Logout';
 
-var firebaseConfig = {
+const firebaseConfig = {
   apiKey: "AIzaSyCWbzWIaiSV6KwZHRmlBkDR7sdlN-AgDC4",
   authDomain: "game-4af87.firebaseapp.com",
   databaseURL: "https://game-4af87.firebaseio.com",
@@ -30,9 +30,10 @@ class App extends Component {
   }
 
   render() {
+    const token = localStorage.getItem('token')
     return (
       <>
-        {!this.props.isAuth && <Redirect to='/' />}
+        {!token && <Redirect to='/' />}
         <Layout>
           <Route path="/" component={Auth} exact />
           <Route path="/game" component={Game} />
@@ -43,16 +44,10 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    isAuth: state.auth.token !== null
-  }
-}
-
 const mapDispatchToProps = dispatch => {
   return {
     onTryAutoSignIn: () => dispatch(actions.authCheckState())
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(null, mapDispatchToProps)(App);

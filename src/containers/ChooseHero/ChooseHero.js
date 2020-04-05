@@ -1,34 +1,17 @@
 import React from 'react';
 import { heroes } from '../../data/heroes';
 import { NavLink } from 'react-router-dom';
+import Hero from './Hero/Hero';
 
-const ChooseHero = (props) => {
+const ChooseHero = ({ data, gameId, saveChangedGameStatistics, changeNewGameStatusHandler }) => {
 
   const chooseHeroHandler = (hero) => {
-    props.data.games[props.gameId].hero = hero;
-    props.saveChangedGameStatistics(props.data);
-    props.changeNewGameStatusHandler()
+    data.games[gameId].hero = hero;
+    saveChangedGameStatistics(data);
+    changeNewGameStatusHandler()
   }
 
-  const chooseHero = heroes.map(hero =>
-    <div className="choose-hero__hero" key={hero.name} onClick={() => chooseHeroHandler(hero)}>
-      <h3 className="choose-hero__hero-name">{hero.name}</h3>
-      <img className="choose-hero__hero-img" src={hero.img} alt={hero.name} />
-      <div className="choose-hero__hero-statistics">
-        <h4>Statistics:</h4>
-        <p>Health: {hero.statistics.hp}</p>
-        <p>Mana: {hero.statistics.mana}</p>
-        <p>Attack: {hero.statistics.attack}</p>
-        <p>Defence: {hero.statistics.def}</p>
-        <p>Speed: {hero.statistics.speed}</p>
-      </div>
-      <div className="choose-hero__hero-statistics">
-        <h4>Special Skills:</h4>
-        <p>{hero.skills.skill1.name}</p>
-        <p>{hero.skills.skill2.name}</p>
-      </div>
-    </div>
-  )
+  const chooseHero = heroes.map(hero => <Hero key={hero.name} hero={hero} chooseHeroHandler={chooseHeroHandler} />)
 
   return (
     <section className="choose-hero">

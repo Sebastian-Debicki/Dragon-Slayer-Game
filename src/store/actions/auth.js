@@ -49,9 +49,12 @@ export const auth = (email, password, isSignUp) => {
       returnSecureToken: true
     };
     let url;
+    let isNewUser = false;
     if (isSignUp) {
+      isNewUser = true;
       url = 'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCWbzWIaiSV6KwZHRmlBkDR7sdlN-AgDC4'
     } else {
+      isNewUser = false;
       url = 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCWbzWIaiSV6KwZHRmlBkDR7sdlN-AgDC4'
     }
 
@@ -61,7 +64,7 @@ export const auth = (email, password, isSignUp) => {
         localStorage.setItem('token', response.data.idToken)
         localStorage.setItem('expirationDate', expirationDate)
         localStorage.setItem('userId', response.data.localId);
-        dispatch(authSuccess(response.data.idToken, response.data.localId))
+        dispatch(authSuccess(response.data.idToken, response.data.localId, isNewUser))
         dispatch(checkAuthTimeout(response.data.expiresIn))
       })
       .catch(err => {

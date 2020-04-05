@@ -14,9 +14,9 @@ class Game extends Component {
     const token = localStorage.getItem('token');
     const userId = localStorage.getItem('userId');
     if (this.props.isNewUser) {
-      this.props.newUserStartGame(this.props.token, this.props.userId)
+      this.props.newUserStartGame(token, userId)
       setTimeout(() => {
-        this.props.fetchGames(this.props.token, this.props.userId)
+        this.props.fetchGames(token, userId)
       }, 1000)
     } else {
       this.props.fetchGames(token, userId)

@@ -4,28 +4,22 @@ import Button from '../../components/UI/Button/Button';
 import * as actions from '../../store/actions/index';
 import swordIcon from '../../assets/icons/sword.png';
 import { Redirect } from 'react-router-dom';
+import { useAuthState } from './useAuthState';
 
-const Auth = (props) => {
-  const [emailInputValue, setEmailValueState] = React.useState('');
-  const [passwordInputValue, setPasswordValueState] = React.useState('');
-  const [authType, setAuthTypeState] = React.useState(false);
-
-  const changeEmailInputValue = (e) => setEmailValueState(e.target.value);
-  const changePasswordInputValue = (e) => setPasswordValueState(e.target.value);
-  const changeAuthTypeHandler = () => setAuthTypeState(!authType);
-
-  const authenticationSubmitHandler = (e) => {
-    e.preventDefault();
-
-    props.authentication(emailInputValue, passwordInputValue, authType)
-
-    setEmailValueState('');
-    setPasswordValueState('');
-  }
+const Auth = ({ authentication, isAuth }) => {
+  const {
+    emailInputValue,
+    passwordInputValue,
+    authType,
+    changeEmailInputValue,
+    changePasswordInputValue,
+    changeAuthTypeHandler,
+    authenticationSubmitHandler
+  } = useAuthState(authentication)
 
   return (
     <section className="auth">
-      {props.isAuth && <Redirect to="/game/choose-save" />}
+      {isAuth && <Redirect to="/game/choose-save" />}
       <div className="heading-box">
         <h1 className="heading-primary">Dragon Slayer</h1>
       </div>
@@ -43,8 +37,8 @@ const Auth = (props) => {
           </Button>
         </form>
         {authType
-          ? <p className="auth__ask-paragraph">Do you have account already? <Button className="btn btn--link" clicked={changeAuthTypeHandler}>Sign in</Button></p>
-          : <p className="auth__ask-paragraph">Don't have an account? <Button className="btn btn--link" clicked={changeAuthTypeHandler}>Sign up</Button></p>}
+          ? <p className="auth__ask-paragraph">Do you have an account? <Button className="btn btn__confirm" clicked={changeAuthTypeHandler}>Sign in <span className="btn__confirm__item">!</span></Button></p>
+          : <p className="auth__ask-paragraph">Don't have an account? <Button className="btn btn__confirm" clicked={changeAuthTypeHandler}>Sign up <span className="btn__confirm__item">!</span></Button></p>}
       </div>
     </section>
   );
